@@ -3,7 +3,11 @@ const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = document.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
+const timeCount = quiz_box.querySelector(".timer .timer_sec");
+
+
 const option_list = document.querySelector(".option_list");
+
 
 
 // get instructions to pop up on clicking start
@@ -17,16 +21,18 @@ exit_btn.onclick = ()=>{
   info_box.classList.remove("activeInfo"); 
 }
 
-// continue button if clicked - move to quiz questions
+// continue button clicked - move to quiz questions, start timer
 continue_btn.onclick = ()=>{
   info_box.classList.remove("activeInfo"); // hide intructions
   quiz_box.classList.add("activeQuiz"); // show questions
   showQuestions(0);
   queCounter(1);
+  startTimer(15);
 }
 
 let que_count = 0;
 let que_numb = 1;
+let counter;
 
 
 const next_btn = quiz_box.querySelector(".next_btn");
@@ -74,6 +80,8 @@ function optionSelected(answer){
     console.log("Answer is incorrect.");
     answer.insertAdjacentHTML("beforeend", crossIcon);
 
+
+    // highlights correct answer if the wrong one was chosen
     for (let i = 0; i < allOptions; i++) {
       if(option_list.children[i].textContent == correctAns){
         option_list.children[i].setAttribute("class", "option correct");
@@ -91,6 +99,15 @@ for (let i = 0; i < allOptions; i++) {
 }
 
 
+
+//timer function
+function startTimer(time){
+  counter = setInterval(timer, 1000);
+  function timer(){
+    timeCount.textContent = time;
+    time--;
+  }
+}
 
 
 
