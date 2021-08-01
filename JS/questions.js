@@ -3,57 +3,57 @@
 let questions = [
     {
         numb: 1,
-        question: "Question 1 test?",
-        answer: "Answer 1 (correct)",
+        question: "Which built-in method returns the calling string value converted to lower case?",
+        answer: "toLowerCase()",
         options: [
-            "Answer 1 (correct)",
-            "Answer 2",
-            "Answer 3",
-            "Answer 4"
+            "toLowerCase()",
+            "toLower()",
+            "changeCase(case)",
+            "None of the above."
         ]
     },
     {
         numb: 2,
-        question: "Question 2",
-        answer: "Answer 1 (correct)",
+        question: "Which of the following function of Number object defines how many total digits to display of a number?",
+        answer: "toPrecision()",
         options: [
-            "Answer 1 (correct)",
-            "Answer 2",
-            "Answer 3",
-            "Answer 4",
+            "toExponential()",
+            "toFixed()",
+            "toLocaleString()",
+            "toPrecision()",
         ]
     },
     {
         numb: 3,
-        question: "Question 3",
-        answer: "Answer 2 (correct)",
+        question: "Which of the following function of String object extracts a section of a string and returns a new string?",
+        answer: "slice()",
         options: [
-            "Answer 1",
-            "Answer 2 (correct)",
-            "Answer 3",
-            "Answer 4",
+            "slice()",
+            "split()",
+            "replace()",
+            "search()",
         ]
     },
     {
         numb: 4,
-        question: "Question 4",
-        answer: "Answer 3 (correct)",
+        question: "Which of the following function of String object returns the calling string value converted to lower case while respecting the current locale?",
+        answer: "toLocaleLowerCase()",
         options: [
-            "Answer 1",
-            "Answer 2",
-            "Answer 3 (correct)",
-            "Answer 4",
+            "toLocaleLowerCase()",
+            "toLowerCase()",
+            "toString()",
+            "substring()",
         ]
     },
     {
         numb: 5,
-        question: "Question 5",
-        answer: "Answer 4 (correct)",
+        question: "Which of the following function of Array object adds one or more elements to the end of an array and returns the new length of the array?",
+        answer: "push()",
         options: [
-            "Answer 1",
-            "Answer 2",
-            "Answer 3",
-            "Answer 4 (correct)",
+            "pop()",
+            "push()",
+            "join()",
+            "map()",
         ]
     },
 ];
