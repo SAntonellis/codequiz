@@ -36,9 +36,15 @@ let que_numb = 1;
 let counter;
 let timeValue = 15;
 let widthValue = 0;
+let userScore = 0;
 
 const next_btn = quiz_box.querySelector(".next_btn");
-//click next button
+const result_box = document.querySelector(".result_box");
+const restart_quiz = result_box.querySelector(".buttons .restart");
+const quit_quiz = result_box.querySelector(".buttons .quit");
+
+
+//click next button til quiz completed
 next_btn.onclick = ()=>{
   if(que_count < questions.length - 1){
     que_count++;
@@ -50,8 +56,10 @@ next_btn.onclick = ()=>{
     clearInterval(counterLine);
     startTimerLine(widthValue);
     next_btn.style.display = "none";
-  }else{console.log("Questions Completed")
-
+  }else{
+    console.log("Questions Completed");
+    showResultBox();
+  
   }
 }
 
@@ -81,6 +89,8 @@ function optionSelected(answer){
   let correctAns = questions[que_count].answer;
   let allOptions = option_list.children.length;
   if(userAns == correctAns){
+    userScore += 1;
+    console.log(userScore);
     answer.classList.add("correct");
     console.log("Answer is Correct.");
     answer.insertAdjacentHTML("beforeend", tickIcon);
@@ -101,11 +111,20 @@ function optionSelected(answer){
 
 // once answer chosen - can't choose any others 
 for (let i = 0; i < allOptions; i++) {
-  option_list.children[i].classList.add("disabled");
+    option_list.children[i].classList.add("disabled");
 }
-next_btn.style.display = "block";
+  next_btn.style.display = "block";
 }
 
+function showResultBox(){
+  info_box.classList.remove("activeInfo"); // hide intructions
+  quiz_box.classList.remove("activeQuiz"); // hide questions
+  result_box.classList.add("activeResult"); // show results
+  const scoreText = result_box.querySelector(".score_text");
+  if(userScore > 3){
+    let scoreTag = '<span>Your score was<p>'+ userScore +'</p>out of<p>'+ questions.length +'5</p></span>';
+  }
+}
 
 
 //timer function
