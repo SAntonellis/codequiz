@@ -71,6 +71,7 @@ let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 function optionSelected(answer){
+  clearInterval(counter);
   let userAns = answer.textContent;
   let correctAns = questions[que_count].answer;
   let allOptions = option_list.children.length;
@@ -109,6 +110,10 @@ function startTimer(time){
   function timer(){
     timeCount.textContent = time;
     time--;
+    if(time < 0){
+      clearInterval(counter);
+      timeCount.textContent = "00";
+    }
   }
 }
 
