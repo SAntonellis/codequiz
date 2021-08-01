@@ -34,6 +34,7 @@ continue_btn.onclick = ()=>{
 let que_count = 0;
 let que_numb = 1;
 let counter;
+let counterLine;
 let timeValue = 15;
 let widthValue = 0;
 let userScore = 0;
@@ -42,6 +43,27 @@ const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box");
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
+
+restart_quiz.onclick = ()=>{
+  result_box.classList.remove("activeResult");
+  quiz_box.classList.add("activeQuiz");
+  let que_count = 0;
+  let que_numb = 1;
+  let timeValue = 15;
+  let widthValue = 0;
+  let userScore = 0;
+  showQuestions(que_count);
+  queCounter(que_numb);
+  clearInterval(counter);
+  startTimer(timeValue);
+  clearInterval(counterLine);
+  startTimerLine(widthValue);
+  next_btn.style.display = "none";
+}
+
+quit_quiz.onclick = ()=>{
+  window.location.reload();
+}
 
 
 //click next button til quiz completed
@@ -122,7 +144,16 @@ function showResultBox(){
   result_box.classList.add("activeResult"); // show results
   const scoreText = result_box.querySelector(".score_text");
   if(userScore > 3){
-    let scoreTag = '<span>Your score was<p>'+ userScore +'</p>out of<p>'+ questions.length +'5</p></span>';
+    let scoreTag = '<span>Great job! Your score was<p>'+ userScore +'</p>out of<p>'+ questions.length +'</p></span>';
+    scoreText.innerHTML = scoreTag;
+  }
+  else if(userScore > 1){
+    let scoreTag = '<span>Sorry, your score was<p>'+ userScore +'</p>out of<p>'+ questions.length +'</p></span>';
+    scoreText.innerHTML = scoreTag;
+  }
+  else{
+    let scoreTag = '<span>Sorry, your score was<p>'+ userScore +'</p>out of<p>'+ questions.length +'</p></span>';
+    scoreText.innerHTML = scoreTag;
   }
 }
 
