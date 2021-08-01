@@ -49,6 +49,7 @@ next_btn.onclick = ()=>{
     startTimer(timeValue);
     clearInterval(counterLine);
     startTimerLine(widthValue);
+    next_btn.style.display = "none";
   }else{console.log("Questions Completed")
 
   }
@@ -101,9 +102,8 @@ function optionSelected(answer){
 // once answer chosen - can't choose any others 
 for (let i = 0; i < allOptions; i++) {
   option_list.children[i].classList.add("disabled");
-  
 }
-
+next_btn.style.display = "block";
 }
 
 
